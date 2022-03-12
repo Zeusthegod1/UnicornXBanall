@@ -24,7 +24,7 @@ TeamIndia = TelegramClient('TeamIndia', Var.API_KEY, Var.API_HASH).start(bot_tok
 
 
 BANNER = []
-for x in Var.SUDO: 
+for x in Var.OWNER_ID: 
     BANNER.append(x)
 
 print("Booting.....")
