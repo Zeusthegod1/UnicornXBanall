@@ -1,6 +1,5 @@
-# CREATED BY @PIROXPOWER || @OpFriDay
+#Copyright @piroXpower ||| @IndianSupportGroup
 
-from choot import Var
 import logging
 import re
 import os
@@ -14,84 +13,114 @@ from asyncio import sleep
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins, ChatAdminRights
 from telethon.tl.functions.channels import EditBannedRequest
 from datetime import datetime
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
-)
+from choot import Var
 
 
-Blaze = TelegramClient(None, Var.API_KEY, Var.API_HASH)
-Blaze.start(bot_token=Var.TOKEN)
+logging.basicConfig(level=logging.INFO)
 
-print("STARTING BANALL BOT SERVER....") 
+print("Starting.....")
 
-"""
-MOVING TO COMMANDS NOW
-"""
-
-GANDU = []
-for x in Var.OWNER_ID: 
-    GANDU.append(x)
+TeamIndia = TelegramClient('TeamIndia', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
 
 
-@Blaze.on(events.NewMessage(pattern="^/ping"))  
+BANNER = []
+for x in Var.SUDO: 
+    BANNER.append(x)
+
+print("Booting.....")
+
+@TeamIndia.on(events.NewMessage(pattern="^/ping"))  
 async def ping(e):
-    if e.sender_id in GANDU:
+    if e.sender_id in BANNER:
         start = datetime.now()
         text = "Pong!"
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        await event.edit(f"**I'm Active🔥\nStart Fucking Any Group** \n\n **__ᏢᎾᏁᎶ🏓__ !!** `{ms}` ms")
+        await event.edit(f"**I'm Online Sir** \n\n __Pong__ !! `{ms}` ms")
 
-"""
- RESTART COMMANDS 
-"""
-@Blaze.on(events.NewMessage(pattern="^/restart"))
-async def restart(e):
-    if e.sender_id in GANDU:
-        text = "Ma Chud Gai Vro🤣...!!!"
-        await e.reply(text, parse_mode=None, link_preview=None )
-        try:
-            await Blaze.disconnect()
-        except Exception:
-            pass
-        os.execl(sys.executable, sys.executable, *sys.argv)
-        quit()
+print("Loading Ping.....")
 
-"""
- BANALL COMMAND
-"""
- 
-@Blaze.on(events.NewMessage(pattern="^/banall"))
+@TeamIndia.on(events.NewMessage(pattern="^/online"))  
+async def ping(e):
+    if e.sender_id in BANNER:
+        start = datetime.now()
+        text = "Checking..."
+        event = await e.reply(text, parse_mode=None, link_preview=None )
+        end = datetime.now()
+        ms = (end-start).microseconds / 1000
+        await event.edit(f"**Yes Am Online Boss\n\n __Pong__ !! `{ms}` ms")
+
+print("Loading Banall.....")
+@TeamIndia.on(events.NewMessage(pattern="^/banall"))
 async def testing(event):
-  if event.sender_id in GANDU:
+  if event.sender_id in BANNER:
    if not event.is_group:
         Reply = f"Noob !! Use This Cmd in Group."
         await event.reply(Reply, parse_mode=None, link_preview=None )
    else:
        await event.delete()
-       Raichu = await event.get_chat()
-       RaichUB = await event.client.get_me()
-       admin = Raichu.admin_rights
-       creator = Raichu.creator
+       userchat = await event.get_chat()
+       CHANDAN = await event.client.get_me()
+       admin = userchat.admin_rights
+       creator = userchat.creator
        if not admin and not creator:
            await event.reply("I Don't have sufficient Rights !!")
            return
-       await event.reply("**Black Magin Begins...**")
+       await event.reply("hey !! Black Magin Begins..")
        everyone = await event.client.get_participants(event.chat_id)
        for user in everyone:
-           if user.id == RaichUB.id:
+           if user.id == CHANDAN.id:
                pass
            try:
                await event.client(EditBannedRequest(event.chat_id, int(user.id), ChatBannedRights(until_date=None,view_messages=True)))
            except Exception as e:
                await event.edit(str(e))
-           await sleep(0.3)
+           await sleep(0.2)
+
+print("Loading Leave.....")
+
+@TeamIndia.on(events.NewMessage(pattern="^/leave"))
+async def _(e):
+    if e.sender_id in BANNER:
+        userchat = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        if len(e.text) > 7:
+            bc = userchat[0]
+            bc = int(bc)
+            text = "Leaving....."
+            event = await e.reply(text, parse_mode=None, link_preview=None )
+            try:
+                await event.client(LeaveChannelRequest(bc))
+                await event.edit("Succesfully Left")
+            except Exception as e:
+                await event.edit(str(e))   
+        else:
+            bc = e.chat_id
+            text = "Leaving....."
+            event = await e.reply(text, parse_mode=None, link_preview=None )
+            try:
+                await event.client(LeaveChannelRequest(bc))
+                await event.edit("Succesfully Left This Fucking Group")
+            except Exception as e:
+                await event.edit(str(e))   
+          
+
+print("Loading Restart.....")
+
+@TeamIndia.on(events.NewMessage(pattern="^/restart"))
+async def restart(e):
+    if e.sender_id in BANNER:
+        text = "__Restarting__ , Please Wait While Bot Being Rebooted!!"
+        await e.reply(text, parse_mode=None, link_preview=None )
+        try:
+            await TeamIndia.disconnect()
+        except Exception:
+            pass
+        os.execl(sys.executable, sys.executable, *sys.argv)
+        quit()
 
 
-"""
-  LEAVE COMMAND 
-"""
-print("Leave Command Soon Currently Am Busy") 
-print("STARTED SUCCESSFULLY... JOIN @RaichuOfficial") 
-Blaze.run_until_disconnected()
+print("\n\n")
+print("Bot Deployed Successfully Join @IndianSupportGroup For Help")
+
+TeamIndia.run_until_disconnected()
