@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 
 print("Starting.....")
 
-TeamIndia = TelegramClient('TeamIndia', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
+TeamIndia = TelegramClient('TeamIndia', Var.API_KEY, Var.API_HASH).start(bot_token=Var.TOKEN)
 
 
 BANNER = []
