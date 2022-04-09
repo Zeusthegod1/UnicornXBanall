@@ -1,8 +1,1 @@
-async-lru==1.0.2
-pyaes==1.6.1
-PySocks==1.7.1
-python-dotenv==0.15.0
-Tgcrypto
-https://github.com/New-dev0/Telethon/archive/patch-8.zip
-python-decouple
-heroku3
+pyrogram
