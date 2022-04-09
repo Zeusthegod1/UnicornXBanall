@@ -12,7 +12,7 @@ app = Client("banall", app_id, app_key, bot_token=token)
 
 STARTED = 'Black Magic Begins...'
 FINISH = 'done, {} users were removed from group'
-ERROR = 'something Went Wrong Please Try Again..!'
+ERROR = 'something Went Wrong Please Try Again.{} !'
 
 @app.on_message(filters.group & filters.command("banall"))
 def main(_, msg: Message):
