@@ -1,45 +1,22 @@
-
 {
-    "name": "Ban All Bot",
-    "description": "help you to ban the all memebers from the group",
-    "repository": "https://github.com/TheDeCoDe/BanAllBot",
-    "logo": "https://telegra.ph/file/238bc60ed5cee135acf00.jpg",
-    "keywords": [
-        "python",
-        "telegram"
-    ],
-    "buildpacks": [{
-    "url": "heroku/python"
-  }],
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "free"
-        }
-     },
-       "addons": [
-      {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-   ],
-    "env": {
-        "API_ID": {
-            "description": "Your bot token",
-            "value": "",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "Get from https://my.telegram.org",
-            "value": "",
-            "required": true
-        },
-        "BOT_TOKEN": {
-            "description": "Get from https://my.telegram.org",
-            "value": "",
-            "required": true
-        },        
+  "name": "BanAllBot",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your bot token, as a string.",
+      "value": ""
+    },
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+}
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
     }
+  ]
 }
