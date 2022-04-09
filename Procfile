@@ -1,1 +1,1 @@
-worker: python3 Semx.py
+worker: python3 banall.py
