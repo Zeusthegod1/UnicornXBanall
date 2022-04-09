@@ -26,13 +26,8 @@
       }
    ],
     "env": {
-        "TOKEN": {
+        "API_ID": {
             "description": "Your bot token",
-            "value": "",
-            "required": true
-        },
-        "API_KEY": {
-            "description": "Get from https://my.telegram.org",
             "value": "",
             "required": true
         },
@@ -41,10 +36,10 @@
             "value": "",
             "required": true
         },
-        "OWNER_ID": {
-            "description": "Owner id here.",
+        "BOT_TOKEN": {
+            "description": "Get from https://my.telegram.org",
             "value": "",
             "required": true
-        }
+        },        
     }
 }
