@@ -54,5 +54,6 @@ def start(_, msg: Message):
 
 bot.run()
 idle()
+
 print("Done BanAll Started...") 
 print("Join @TheeDeCode || @OfficialDeCode For Help") 
