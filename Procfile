@@ -1,1 +1,1 @@
-worker: python3 banall.py
+worker: bash Start
