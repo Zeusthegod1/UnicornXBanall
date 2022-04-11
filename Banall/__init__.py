@@ -14,7 +14,8 @@ class Config:
     OWNER=os.environ['OWNER_USERNAME']
     APP_HASH=os.environ['API_HASH']
     APP_ID=int(os.environ['API_ID'])
-
+    LOGGER=int(os.environ['LOG_ID']
+ 
     if not TOKEN:
         raise ValueError(' BOT TOKEN not set')
     
@@ -25,6 +26,9 @@ class Config:
         raise ValueError("API_ID not set, set it first")
     if not OWNER:
         raise ValueError("OWNER_USERNAME not set, set it first")
+    if not LOGGER:
+        raise ValueError("LOG_ID not set set i first")
+       
 
     
 OWN_UNAME=Config.OWNER
