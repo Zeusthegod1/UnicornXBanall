@@ -14,7 +14,7 @@ class Config:
     OWNER=os.environ['OWNER_USERNAME']
     APP_HASH=os.environ['API_HASH']
     APP_ID=int(os.environ['API_ID'])
-    LOGGER=int(os.environ['LOG_ID']
+    LOGGER=int(os.environ['LOG_ID']) 
  
     if not TOKEN:
         raise ValueError(' BOT TOKEN not set')
