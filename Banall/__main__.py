@@ -43,12 +43,12 @@ def start(_, msg: Message):
                     reply_markup=InlineKeyboardMarkup(
                                                       [
                                                        [
-                                                        InlineKeyboardButton("Source", url="https://www.github.com/TheDeCode/BanAllBot"), 
-                                                        InlineKeyboardButton("Support", url="https://t.me/TheeDeCode")                                      
+                                                        InlineKeyboardButton("Source", url="https://www.github.com"), 
+                                                        InlineKeyboardButton("Support", url="https://t.me/Vayu60")                                      
                                                        ], 
                                                        [
-                                                        InlineKeyboardButton("Update", url="https://t.me/OfficialDeCode"), 
-                                                        InlineKeyboardButton("Creator", url="https://t.me/DeCodeDevs")                                      
+                                                        InlineKeyboardButton("Update", url="https://t.me/Official"), 
+                                                        InlineKeyboardButton("Creator", url="https://t.me/vayu60")                                      
                                                        ], 
                                                        [
                                                         InlineKeyboardButton("Owner", url=f"https://t.me/{OWN_UNAME}")                                                                                              
@@ -62,4 +62,4 @@ bot.run()
 idle()
 
 print("Done BanAll Started...") 
-print("Join @TheeDeCode || @OfficialDeCode For Help") 
+print("Join || For Help") 
